@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppProducer;
 
-internal class ProduceMessage
+internal class GenerateMessage
 {
     public async Task CreateMessage()
     {
@@ -18,6 +18,7 @@ internal class ProduceMessage
             BrokerAddressFamily = BrokerAddressFamily.V4,
         };
         using var producer = new ProducerBuilder<Null, string>(config).Build();
+        await producer.ProduceAsync("my-topic", new Message<Null, string> { Value = "Welcome" });
         Console.WriteLine("Please enter the message you want to send");
         var input = Console.ReadLine();
         var message = new Message<Null, string>

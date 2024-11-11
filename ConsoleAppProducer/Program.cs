@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ConsoleAppProducer;
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine("Hello, Producer!");
 
-ProduceMessage produceMessage = new ProduceMessage();
+GenerateMessage produceMessage = new GenerateMessage();
 produceMessage.CreateMessage().Wait();
